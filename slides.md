@@ -70,7 +70,7 @@ presenterImage: '/my-slides/my-pic.jpg'
 
 <div class="grid grid-cols-2 gap-x-2 gap-y-4 text-gray-500">
  <div class="flex flex-col align-center items-center">
-    <div class="mb-2 w-70 border-1 rounded-lg border-gray-500 border-solid text-center"><span class="text-xl">🎥 映画</span></div>
+    <div class="mb-2 w-95 border-1 rounded-lg border-gray-500 border-solid text-center"><span class="text-xl">🎥 映画</span></div>
     <div class="flex gap-3">
       <a href="https://filmarks.com/movies/56354" style="border-color: transparent"><img class="object-contain h-40" src="/about_time.jpg"/></a>
       <a href="https://filmarks.com/movies/57482" style="border-color: transparent"><img class="object-contain h-40" src="/boyhood.jpg" /></a>
@@ -78,14 +78,14 @@ presenterImage: '/my-slides/my-pic.jpg'
     </div>
  </div>
  <div class="flex flex-col align-center items-center">
-    <div class="mb-2 w-70 border-1 rounded-lg border-gray-500 border-solid text-center"><span class="text-xl">🧖🏻 サウナ</span></div>
+    <div class="mb-2 w-95 border-1 rounded-lg border-gray-500 border-solid text-center"><span class="text-xl">🧖🏻 サウナ</span></div>
     <FancyLink href="https://sauna-ikitai.com/saunas/2136" style="color: #6B727F">綱島温泉 湯けむりの庄</FancyLink>
     <div class="flex gap-3">
       <img src="/yukemuri.jpg" width="230px" />
     </div>
  </div>
  <div class="flex flex-col align-center items-center">
-    <div class="mb-2 w-70 border-1 rounded-lg border-gray-500 border-solid text-center"><span class="text-xl">📷 カメラ</span></div>
+    <div class="mb-2 w-95 border-1 rounded-lg border-gray-500 border-solid text-center"><span class="text-xl">📷 カメラ</span></div>
     <FancyLink href="https://kiokucamera.com/i-love-olympus-penf-20220416" style="color: #6B727F">OLYMPUS PEN-F</FancyLink>
     <div class="flex gap-3">
       <img class="object-contain w-50" src="/pic1.jpg" />
@@ -93,7 +93,7 @@ presenterImage: '/my-slides/my-pic.jpg'
     </div>
  </div>
  <div class="flex flex-col align-center items-center">
-    <div class="mb-2 w-70 border-1 rounded-lg border-gray-500 border-solid text-center"><span class="text-xl">☕️ コーヒー</span></div>
+    <div class="mb-2 w-95 border-1 rounded-lg border-gray-500 border-solid text-center"><span class="text-xl">☕️ コーヒー</span></div>
     <FancyLink href="https://www.sugiayacoffeemameten.com/" style="color: #6B727F">杉綾珈琲豆店</FancyLink>
     <div class="flex gap-3">
       <img class="object-contain w-45"src="/sugiaya2.jpg" />
