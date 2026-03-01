@@ -6,7 +6,7 @@ themeConfig:
 
 title: 自己紹介
 layout: presenter
-presenterImage: '/my-slides/my-pic.jpg'
+presenterImage: '/my-pic.jpg'
 ---
 
 <div class="text-gray-500">
