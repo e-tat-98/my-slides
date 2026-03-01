@@ -13,16 +13,17 @@ export default defineConfig({
         basePath = base
       },
       transform(code, id) {
-        if (id.includes('.md') && code.includes('/my-pic.jpg')) {
+        if (id.includes('.md') && code.includes('presenterImage')) {
           const base = basePath || ''
 
-          const target = '/my-pic.jpg'
-          const replacement = `${base}/my-pic.jpg`.replace(/\/+/g, '/')
-
-          console.info(`\n[BUILD] Replacing ${target} -> ${replacement} in ${id}`)
+          const regex = /((["']?)presenterImage\2)\s*:\s*(["'])\/?(.*?)\3/g
+          const newCode = code.replace(regex, (match, keyFull, keyQuote, valueQuote, path) => {
+            const cleanedPath = `/${base}/${path}`.replace(/\/+/g, '/')
+            return `${keyFull}: ${valueQuote}${cleanedPath}${valueQuote}`
+          })
 
           return {
-            code: code.replaceAll(target, replacement),
+            code: newCode,
             map: null
           }
         }
