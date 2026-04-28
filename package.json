@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build:all": "pnpm --filter './slides/*' --parallel build",
-    "preview:all": "pnpm build:all && node scripts/gen-index.mjs && vite preview --outDir dist --port 4173"
+    "preview:all": "node scripts/gen-index.mjs && vite preview --outDir dist --port 4173"
   },
   "dependencies": {
     "@iconify-json/logos": "^1.2.10",
