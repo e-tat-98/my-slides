@@ -1,0 +1,10 @@
+{
+  "name": "@slides/self-intro",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "slidev --open slides.md",
+    "build": "slidev build slides.md --base /my-slides/self-intro/ --out ../../dist/self-intro",
+    "export": "slidev export slides.md"
+  }
+}
