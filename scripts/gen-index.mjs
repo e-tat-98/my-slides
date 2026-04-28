@@ -22,7 +22,7 @@ for (const { name } of slides) {
   const outDir = join(dist, name)
   mkdirSync(outDir, { recursive: true })
   // すでにサムネイルがある場合はスキップ
-  if (existsSync(join(outDir, 'thumbnail.png'))) {
+  if (existsSync(join(outDir, 'thumbnail', '1.png'))) {
     console.log(`Thumbnail exists, skipping: ${name}`)
     continue
   }
