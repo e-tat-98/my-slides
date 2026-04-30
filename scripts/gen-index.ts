@@ -1,51 +1,23 @@
-import { readdirSync, existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs'
+import { existsSync, writeFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
-import { execFileSync } from 'node:child_process'
+import { getSlides, SlideEntry } from './utils'
 
 const root = process.cwd()
 const slidesDir = join(root, 'slides')
 const dist = join(root, 'dist')
 mkdirSync(dist, { recursive: true })
 
-// 1. slides/ を動的スキャン
-const slides = readdirSync(slidesDir, { withFileTypes: true })
-  .filter(d => d.isDirectory() && existsSync(join(slidesDir, d.name, 'slides.md')))
-  .map(d => {
-    const name = d.name
-    const md = readFileSync(join(slidesDir, name, 'slides.md'), 'utf-8')
-    const title = md.match(/^title:\s*(.+)$/m)?.[1]?.trim() ?? name
-    return { name, title }
-  })
+// 1. slides/ 配下のスライド情報を取得
+const slides: SlideEntry[] = getSlides(slidesDir)
 
-// 2. サムネイル生成（slidev export --format png --range 1）
-for (const { name } of slides) {
-  const outDir = join(dist, name)
-  mkdirSync(outDir, { recursive: true })
-  // すでにサムネイルがある場合はスキップ
-  if (existsSync(join(outDir, 'thumbnail', '1.png'))) {
-    console.log(`Thumbnail exists, skipping: ${name}`)
-    continue
-  }
-  console.log(`Generating thumbnail: ${name}`)
-  try {
-    execFileSync(
-      'pnpm',
-      ['exec', 'slidev', 'export', 'slides.md', '--format', 'png', '--range', '1', '--output', join(outDir, 'thumbnail')],
-      { cwd: join(slidesDir, name), stdio: 'inherit' }
-    )
-  } catch {
-    console.warn(`Warning: thumbnail generation failed for ${name} (playwright not available?), using placeholder`)
-  }
-}
-
-// 3. サムネイルのファイル名を解決
-function thumbnailSrc(name) {
+// 2. サムネイルのファイル名を解決
+function thumbnailSrc(name: string): string | null {
   if (existsSync(join(dist, name, 'thumbnail'))) return `./${name}/thumbnail/1.png`
   return null
 }
 
-// 4. dist/index.html 生成
-const cards = slides.map(({ name, title }) => {
+// 3. dist/index.html 生成
+const cards = slides.map(({ name, title }: SlideEntry) => {
   const src = thumbnailSrc(name)
   const img = src
     ? `<img src="${src}" alt="${title}" loading="lazy" />`
@@ -78,4 +50,5 @@ ${cards}
 </body>
 </html>
 `)
+
 console.log(`Generated dist/index.html (${slides.length} slide(s))`)

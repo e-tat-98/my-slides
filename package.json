@@ -3,8 +3,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build:all": "pnpm --filter './slides/*' --parallel build",
-    "preview:all": "node scripts/gen-index.mjs && vite preview --outDir dist --port 4173"
+    "build:slides": "pnpm --filter './slides/*' --parallel build",
+    "build:index": "tsx scripts/gen-index.ts",
+    "build:thumbnail": "tsx scripts/gen-thumbnail.ts",
+    "preview": "tsx scripts/gen-index.ts && vite preview --outDir dist --port 4173"
   },
   "dependencies": {
     "@iconify-json/logos": "^1.2.10",
@@ -15,6 +17,7 @@
     "vue": "^3.5.27"
   },
   "devDependencies": {
-    "playwright-chromium": "^1.59.1"
+    "playwright-chromium": "^1.59.1",
+    "tsx": "^4.21.0"
   }
 }
