@@ -101,15 +101,19 @@ meta:
 
 ## アニメーション
 
-- **左からスライドイン** (デフォルト): `:initial="{ opacity: 0, x: -20 }" :enter="{ opacity: 1, x: 0 }"`
-- **右からスライドイン**: `:initial="{ opacity: 0, x: 20 }" :enter="{ opacity: 1, x: 0 }"`
-- **下からスライドイン**: `:initial="{ opacity: 0, y: 20 }" :enter="{ opacity: 1, y: 0 }"`
-- **タイトル用**: `:initial="{ opacity: 0, y: 30 }" :enter="{ opacity: 1, y: 0 }"`
-
-ルール:
+基本ルール:
 - 同一スライド内のアニメーション方向は統一する
 - `v-click` + `v-motion` で段階表示する
-- 遅延: `delay: 200`, `delay: 400` で段階的に
+- タイトルスライドはクリック不要・遷移時に自動実行（`delay` で順番を制御）
+- 遅延の刻みは 100〜150ms を基本とし、多くても 700ms 以内に収める
+
+頻出パターン:
+- **左から（デフォルト）**: `:initial="{ opacity: 0, x: -20 }" :enter="{ opacity: 1, x: 0 }"`
+- **下から**: `:initial="{ opacity: 0, y: 20 }" :enter="{ opacity: 1, y: 0 }"`
+- **スケール**: `:initial="{ opacity: 0, scale: 0.8 }" :enter="{ opacity: 1, scale: 1 }"`
+- **スプリング（弾む）**: `:enter="{ ..., transition: { type: 'spring', stiffness: 300, damping: 15 } }"`
+
+タイトル段階演出・フォーカス＆ディム・v-switch・v-mark・CSS ループ・View Transition など、リッチなアニメーションレシピは [references/animation-patterns.md](references/animation-patterns.md) を参照。
 
 ## コードブロック
 
