@@ -132,6 +132,14 @@ markdown の ` ``` ` ではなく HTML styled blocks を使用:
 
 詳細パターンは [references/card-patterns.md](references/card-patterns.md) を参照。
 
+## ビジュアルパターン
+
+ステップフロー・アーキテクチャ図・比較テーブル・コールアウトボックス・数値ハイライト・セクションブレイクなど、より複雑なビジュアル要素は [references/visual-patterns.md](references/visual-patterns.md) を参照。
+
+## スライド構成テンプレート
+
+LT（5分）・技術セッション（15〜30分）・チュートリアルなど、発表形式に応じた構成・枚数・スライドタイプの選び方は [references/slide-structures.md](references/slide-structures.md) を参照。
+
 ## カラースキーム
 
 - **ポジティブ**: green (`text-green-400`, `bg-green-950/20`, `border-green-500`)
