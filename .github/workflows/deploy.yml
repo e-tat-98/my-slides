@@ -43,7 +43,11 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: |
           sudo npx playwright install-deps chromium
-          sudo fc-cache -f
+          # fonts-unifont は全 Unicode 文字を含む巨大フォントで fc-cache を何時間も
+          # ブロックする。サムネイル生成には不要なので除去してから再構築する。
+          sudo apt-get remove -y fonts-unifont 2>/dev/null || true
+          sudo pkill -9 -f fc-cache 2>/dev/null || true
+          sudo fc-cache -f -v 2>&1 | tail -3
 
       - name: Install Playwright Chromium
         if: steps.playwright-cache.outputs.cache-hit != 'true'
