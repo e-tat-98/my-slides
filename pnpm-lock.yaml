@@ -36,6 +36,8 @@ importers:
 
   slides/hello: {}
 
+  slides/lt-2026-06-js-weird-typing: {}
+
   slides/self-intro: {}
 
 packages:

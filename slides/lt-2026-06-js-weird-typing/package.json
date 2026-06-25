@@ -1,0 +1,10 @@
+{
+  "name": "@slides/lt-2026-06-js-weird-typing",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "slidev --open slides.md",
+    "build": "slidev build slides.md --base /my-slides/lt-2026-06-js-weird-typing/ --out ../../dist/lt-2026-06-js-weird-typing",
+    "export": "slidev export slides.md"
+  }
+}
