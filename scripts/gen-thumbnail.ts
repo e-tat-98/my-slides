@@ -23,7 +23,7 @@ for (const { name } of slides) {
       ['exec', 'slidev', 'export', 'slides.md', '--format', 'png', '--range', '1', '--output', join(outDir, 'thumbnail')],
       { cwd: join(slidesDir, name), stdio: 'inherit' }
     )
-  } catch {
-    console.warn(`Warning: thumbnail generation failed for ${name} (playwright not available?), using placeholder`)
+  } catch (err) {
+    console.warn(`Warning: thumbnail generation failed for ${name}:`, err instanceof Error ? err.message : err)
   }
 }

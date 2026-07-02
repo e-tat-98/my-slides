@@ -34,17 +34,20 @@ jobs:
 
       - name: Install Playwright system deps
         run: |
-          sudo PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npx playwright install-deps chromium
+          sudo npx playwright install-deps chromium
           sudo pkill -9 -f fc-cache 2>/dev/null || true
           sudo fc-cache -f 2>&1 | tail -3
+
+      - name: Install Playwright Chromium browser
+        run: |
+          unset PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD
+          node node_modules/playwright-chromium/install.js
 
       - name: Build all slides
         run: pnpm --filter './slides/*' --parallel build
 
       - name: Generate thumbnails
         run: npx tsx scripts/gen-thumbnail.ts
-        env:
-          PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH: /usr/bin/google-chrome-stable
 
       - name: Generate root index.html
         run: npx tsx scripts/gen-index.ts
