@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "slidev --open slides.md",
-    "build": "slidev build slides.md --base /my-slides/hello/ --out ../../dist/hello",
+    "build": "slidev build slides.md --base /my-slides/hello/ --out ../../dist/hello --router-mode hash",
     "export": "slidev export slides.md"
   }
 }

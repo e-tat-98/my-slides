@@ -36,7 +36,7 @@ my-slides/
   "private": true,
   "scripts": {
     "dev": "slidev --open slides.md",
-    "build": "slidev build slides.md --base /my-slides/<name>/ --out ../../dist/<name>",
+    "build": "slidev build slides.md --base /my-slides/<name>/ --out ../../dist/<name> --router-mode hash",
     "export": "slidev export slides.md"
   }
 }

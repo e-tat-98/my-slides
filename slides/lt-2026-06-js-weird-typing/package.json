@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "slidev --open slides.md",
-    "build": "slidev build slides.md --base /my-slides/lt-2026-06-js-weird-typing/ --out ../../dist/lt-2026-06-js-weird-typing",
+    "build": "slidev build slides.md --base /my-slides/lt-2026-06-js-weird-typing/ --out ../../dist/lt-2026-06-js-weird-typing --router-mode hash",
     "export": "slidev export slides.md"
   }
 }
